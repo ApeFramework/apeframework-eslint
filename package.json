@@ -1,0 +1,45 @@
+{
+  "name": "apeframework-eslint",
+  "private": true,
+  "scripts": {
+    "lint": "eslint .",
+    "update": "ncu"
+  },
+  "dependencies": {
+    "eslint-import-resolver-jest": "^3.0",
+    "eslint-import-resolver-typescript": "^3.6"
+  },
+  "peerDependencies": {
+    "@stylistic/eslint-plugin": "^2.8",
+    "@typescript-eslint/eslint-plugin": "^8.6",
+    "@typescript-eslint/parser": "^8.6",
+    "eslint": "^8.57",
+    "eslint-plugin-import": "^2.30",
+    "eslint-plugin-jest": "^28.8"
+  },
+  "peerDependenciesMeta": {
+    "@stylistic/eslint-plugin": {
+      "optional": true
+    },
+    "@typescript-eslint/eslint-plugin": {
+      "optional": true
+    },
+    "@typescript-eslint/parser": {
+      "optional": true
+    },
+    "eslint-plugin-import": {
+      "optional": true
+    },
+    "eslint-plugin-jest": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@stylistic/eslint-plugin": "^2.8",
+    "cheerio": "^1.0",
+    "eslint": "^8.57",
+    "eslint-plugin-import": "^2.30",
+    "fs-extra": "^11.2",
+    "npm-check-updates": "^17.1"
+  }
+}
