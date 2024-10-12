@@ -1,6 +1,6 @@
 # Ape Framework ESLint configuration
 
-[ESLint](https://eslint.org) configuration for [Ape Framework](https://github.com/ApeFramework/ape-framework).
+[ESLint](https://eslint.org) configuration for [Ape Framework](https://github.com/ApeFramework/apeframework).
 
 NPM package: [@apeframework/eslint-config](https://www.npmjs.com/package/@apeframework/eslint-config).
 
