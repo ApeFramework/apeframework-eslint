@@ -7,6 +7,9 @@ module.exports = {
     parser: typescriptPlugin.parser,
     parserOptions: {
       projectService: true,
+      ecmaFeatures: {
+        impliedStrict: true,
+      },
     },
   },
   plugins: {
