@@ -6,36 +6,19 @@
     "update": "ncu"
   },
   "dependencies": {
+    "@stylistic/eslint-plugin": "^2.9",
     "eslint-import-resolver-jest": "^3.0",
     "eslint-import-resolver-typescript": "^3.6",
-    "globals": "^15.11"
-  },
-  "peerDependencies": {
-    "@stylistic/eslint-plugin": "^2.9",
-    "eslint": "^9.12",
     "eslint-plugin-import": "^2.31",
     "eslint-plugin-jest": "^28.8",
+    "globals": "^15.11",
     "typescript-eslint": "^8.8"
   },
-  "peerDependenciesMeta": {
-    "@stylistic/eslint-plugin": {
-      "optional": true
-    },
-    "eslint-plugin-import": {
-      "optional": true
-    },
-    "eslint-plugin-jest": {
-      "optional": true
-    },
-    "typescript-eslint": {
-      "optional": true
-    }
+  "peerDependencies": {
+    "eslint": "^9.12"
   },
   "devDependencies": {
-    "@stylistic/eslint-plugin": "^2.9",
     "cheerio": "^1.0",
-    "eslint": "^9.12",
-    "eslint-plugin-import": "^2.31",
     "fs-extra": "^11.2",
     "npm-check-updates": "^17.1"
   }

@@ -8,16 +8,8 @@ GitHub repository: [ApeFramework/apeframework-eslint](https://github.com/ApeFram
 
 ## Installation
 
-Install package and peer dependencies:
-
 ```
-npm install --save-dev \
-  @apeframework/eslint \
-  @stylistic/eslint-plugin \
-  eslint \
-  eslint-plugin-import \
-  eslint-plugin-jest \
-  typescript-eslint
+yarn add @apeframework/eslint --dev
 ```
 
 ## Usage
