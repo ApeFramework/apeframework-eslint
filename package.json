@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "cheerio": "^1.0",
+    "eslint": "^9.12",
     "fs-extra": "^11.2",
     "npm-check-updates": "^17.1"
   }
