@@ -20,7 +20,7 @@ if (!version) {
 const devPkg = fs.readJsonSync('package.json')
 
 const pkg = {
-  name: '@apeframework/eslint-config',
+  name: '@apeframework/eslint',
   version,
   license: 'MIT',
   author: 'Matthieu Symoens',

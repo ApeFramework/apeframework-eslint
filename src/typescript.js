@@ -1,16 +1,17 @@
 'use strict'
 
+const typescriptPlugin = require('typescript-eslint')
+
 module.exports = {
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    project: 'tsconfig.json',
-    ecmaFeatures: {
-      impliedStrict: true,
+  languageOptions: {
+    parser: typescriptPlugin.parser,
+    parserOptions: {
+      projectService: true,
     },
   },
-  plugins: [
-    '@typescript-eslint',
-  ],
+  plugins: {
+    '@typescript-eslint': typescriptPlugin.plugin,
+  },
   settings: {
     'import/resolver': {
       typescript: true,

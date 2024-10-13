@@ -260,7 +260,7 @@ module.exports = {
   '@stylistic/padding-line-between-statements': 'off',
   '@stylistic/quote-props': [
     'error',
-    'consistent-as-needed',
+    'consistent',
   ],
   '@stylistic/quotes': [
     'error',

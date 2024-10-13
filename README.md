@@ -2,7 +2,7 @@
 
 [ESLint](https://eslint.org) configuration for [Ape Framework](https://github.com/ApeFramework/apeframework).
 
-NPM package: [@apeframework/eslint-config](https://www.npmjs.com/package/@apeframework/eslint-config).
+NPM package: [@apeframework/eslint](https://www.npmjs.com/package/@apeframework/eslint).
 
 GitHub repository: [ApeFramework/apeframework-eslint](https://github.com/ApeFramework/apeframework-eslint).
 
@@ -12,76 +12,45 @@ Install package and peer dependencies:
 
 ```
 npm install --save-dev \
-  @apeframework/eslint-config \
+  @apeframework/eslint \
   @stylistic/eslint-plugin \
-  @typescript-eslint/eslint-plugin \
-  @typescript-eslint/parser \
   eslint \
   eslint-plugin-import \
-  eslint-plugin-jest
+  eslint-plugin-jest \
+  typescript-eslint
 ```
 
 ## Usage
 
-Create `.eslintrc.json` file:
+Create `eslint.config.js` file:
 
-```json
-{
-  "root": true,
-  "extends": ["@apeframework"],
-  "overrides": [
-    {
-      "files": ["**/*.ts"],
-      "extends": ["@apeframework/eslint-config/typescript"],
-      "overrides": [
-        {
-          "files": ["**/*.spec.ts"],
-          "extends": ["@apeframework/eslint-config/jest"]
-        }
-      ]
-    }
-  ]
-}
-```
+```js
+'use strict'
 
-## Overriding rules
+const apeframework = require('@apeframework/eslint')
+const apeframeworkJest = require('@apeframework/eslint/jest')
+const apeframeworkTypescript = require('@apeframework/eslint/typescript')
 
-To override linting rules use:
+module.exports = [
+  {
+    ...apeframework,
+    rules: {
 
-```json
-{
-  "root": true,
-  "extends": ["@apeframework"],
-  "plugins": [
-    "@stylistic",
-    "import"
-  ],
-  "rules": {
-
+    },
   },
-  "overrides": [
-    {
-      "files": ["**/*.ts"],
-      "extends": ["@apeframework/eslint-config/typescript"],
-      "plugins": [
-        "@typescript-eslint"
-      ],
-      "rules": {
+  {
+    files: ['**/*.ts'],
+    ...apeframeworkTypescript,
+    rules: {
 
-      },
-      "overrides": [
-        {
-          "files": ["**/*.spec.ts"],
-          "extends": ["@apeframework/eslint-config/jest"],
-          "plugins": [
-            "jest"
-          ],
-          "rules": {
+    },
+  },
+  {
+    files: ['**/*.spec.ts'],
+    ...apeframeworkJest,
+    rules: {
 
-          }
-        }
-      ]
-    }
-  ]
-}
+    },
+  },
+]
 ```

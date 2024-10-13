@@ -1,15 +1,20 @@
 'use strict'
 
+const stylisticPlugin = require('@stylistic/eslint-plugin')
+const importPlugin = require('eslint-plugin-import')
+const globals = require('globals')
+
 module.exports = {
-  parserOptions: {
+  languageOptions: {
+    sourceType: 'commonjs',
     ecmaVersion: 'latest',
+    globals: {
+      ...globals.node,
+    },
   },
-  plugins: [
-    '@stylistic',
-    'import',
-  ],
-  env: {
-    node: true,
+  plugins: {
+    '@stylistic': stylisticPlugin,
+    'import': importPlugin,
   },
   settings: {
     'import/resolver': {

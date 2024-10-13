@@ -1,11 +1,16 @@
 'use strict'
 
+const jestPlugin = require('eslint-plugin-jest')
+const globals = require('globals')
+
 module.exports = {
-  plugins: [
-    'jest',
-  ],
-  env: {
-    'jest/globals': true,
+  languageOptions: {
+    globals: {
+      ...globals.jest,
+    },
+  },
+  plugins: {
+    'jest': jestPlugin,
   },
   settings: {
     'import/resolver': {
