@@ -20,14 +20,14 @@ Create `eslint.config.js` file:
 'use strict'
 
 const base = require('@apeframework/eslint/base')
+const jest = require('@apeframework/eslint/jest')
 const typescript = require('@apeframework/eslint/typescript')
 const vue = require('@apeframework/eslint/vue')
-const jest = require('@apeframework/eslint/jest')
 
 module.exports = [
   base,
+  jest,
   typescript,
   vue,
-  jest,
 ]
 ```
