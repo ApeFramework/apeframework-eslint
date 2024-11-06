@@ -6,6 +6,11 @@ const vueParser = require('vue-eslint-parser')
 
 module.exports = {
   files: ['*.vue', '**/*.vue'],
+  plugins: {
+    'vue': vuePlugin,
+    '@typescript-eslint': typescriptPlugin.plugin,
+  },
+  processor: 'vue/vue',
   languageOptions: {
     parser: vueParser,
     parserOptions: {
@@ -17,16 +22,14 @@ module.exports = {
       extraFileExtensions: ['.vue'],
     },
   },
-  plugins: {
-    'vue': vuePlugin,
-    '@typescript-eslint': typescriptPlugin.plugin,
-  },
   settings: {
     'import/resolver': {
       typescript: true,
     },
   },
   rules: {
+    ...require('./rules/typescriptDisabled'),
+    ...require('./rules/typescript'),
     ...require('./rules/vue'),
   },
 }

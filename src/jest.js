@@ -5,11 +5,11 @@ const globals = require('globals')
 
 module.exports = {
   files: ['*.spec.ts', '**/*.spec.ts', '*.test.ts', '**/*.test.ts'],
-  languageOptions: {
-    globals: globals.jest,
-  },
   plugins: {
     'jest': jestPlugin,
+  },
+  languageOptions: {
+    globals: globals.jest,
   },
   settings: {
     'import/resolver': {
