@@ -1,19 +1,24 @@
 'use strict'
 
+const vuePlugin = require('eslint-plugin-vue')
 const typescriptPlugin = require('typescript-eslint')
+const vueParser = require('vue-eslint-parser')
 
 module.exports = {
-  files: ['*.ts', '**/*.ts'],
+  files: ['*.vue', '**/*.vue'],
   languageOptions: {
-    parser: typescriptPlugin.parser,
+    parser: vueParser,
     parserOptions: {
+      parser: typescriptPlugin.parser,
       projectService: true,
       ecmaFeatures: {
         impliedStrict: true,
       },
+      extraFileExtensions: ['.vue'],
     },
   },
   plugins: {
+    'vue': vuePlugin,
     '@typescript-eslint': typescriptPlugin.plugin,
   },
   settings: {
@@ -22,7 +27,6 @@ module.exports = {
     },
   },
   rules: {
-    ...require('./rules/typescriptDisabled'),
-    ...require('./rules/typescript'),
+    ...require('./rules/vue'),
   },
 }

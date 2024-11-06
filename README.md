@@ -19,59 +19,15 @@ Create `eslint.config.js` file:
 ```js
 'use strict'
 
-const ape = require('@apeframework/eslint')
-const apeJest = require('@apeframework/eslint/jest')
-const apeTypescript = require('@apeframework/eslint/typescript')
+const base = require('@apeframework/eslint/base')
+const typescript = require('@apeframework/eslint/typescript')
+const vue = require('@apeframework/eslint/vue')
+const jest = require('@apeframework/eslint/jest')
 
 module.exports = [
-  {
-    ...ape,
-  },
-  {
-    files: ['**/*.ts'],
-    ...apeTypescript,
-  },
-  {
-    files: ['**/*.spec.ts'],
-    ...apeJest,
-  },
-]
-```
-
-## Overriding rules
-
-To override linting rules use:
-
-```js
-'use strict'
-
-const ape = require('@apeframework/eslint')
-const apeJest = require('@apeframework/eslint/jest')
-const apeTypescript = require('@apeframework/eslint/typescript')
-
-module.exports = [
-  {
-    ...ape,
-    rules: {
-      ...ape.rules,
-      // override
-    },
-  },
-  {
-    files: ['**/*.ts'],
-    ...apeTypescript,
-    rules: {
-      ...apeTypescript.rules,
-      // override
-    },
-  },
-  {
-    files: ['**/*.spec.ts'],
-    ...apeJest,
-    rules: {
-      ...apeJest.rules,
-      // override
-    },
-  },
+  base,
+  typescript,
+  vue,
+  jest,
 ]
 ```

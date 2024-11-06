@@ -40,7 +40,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          ./bin/package.js ${{ steps.tag.outputs.version }}
-          cd $GITHUB_WORKSPACE/dist
+          node bin/package ${{ steps.tag.outputs.version }}
+          cd dist
           npm publish \
             --tag=${{ steps.tag.outputs.dev == 'true' && 'dev' || 'latest' }}

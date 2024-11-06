@@ -2,7 +2,7 @@
   "name": "apeframework-eslint",
   "private": true,
   "scripts": {
-    "lint": "eslint .",
+    "lint": "eslint",
     "update": "ncu"
   },
   "dependencies": {
@@ -11,8 +11,10 @@
     "eslint-import-resolver-typescript": "^3.6",
     "eslint-plugin-import": "^2.31",
     "eslint-plugin-jest": "^28.8",
+    "eslint-plugin-vue": "^9.30",
     "globals": "^15.11",
-    "typescript-eslint": "^8.8"
+    "typescript-eslint": "^8.8",
+    "vue-eslint-parser": "^9.4"
   },
   "peerDependencies": {
     "eslint": "^9.12"

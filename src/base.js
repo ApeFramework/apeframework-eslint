@@ -8,9 +8,7 @@ module.exports = {
   languageOptions: {
     sourceType: 'commonjs',
     ecmaVersion: 'latest',
-    globals: {
-      ...globals.node,
-    },
+    globals: globals.node,
   },
   plugins: {
     '@stylistic': stylisticPlugin,
