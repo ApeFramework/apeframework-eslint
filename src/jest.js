@@ -1,9 +1,8 @@
-'use strict'
+import jestPlugin from 'eslint-plugin-jest'
+import globals from 'globals'
+import jestRules from './rules/jest.js'
 
-const jestPlugin = require('eslint-plugin-jest')
-const globals = require('globals')
-
-module.exports = {
+const jestConfig = {
   files: ['*.spec.ts', '**/*.spec.ts', '*.test.ts', '**/*.test.ts'],
   plugins: {
     'jest': jestPlugin,
@@ -19,6 +18,10 @@ module.exports = {
     },
   },
   rules: {
-    ...require('./rules/jest'),
+    ...jestRules,
   },
+}
+
+export {
+  jestConfig as default,
 }

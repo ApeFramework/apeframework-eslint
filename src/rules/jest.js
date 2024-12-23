@@ -1,6 +1,4 @@
-'use strict'
-
-module.exports = {
+const jestRules = {
   'jest/consistent-test-it': [
     'error',
     {
@@ -164,4 +162,8 @@ module.exports = {
   'jest/valid-title': [
     'error',
   ],
+}
+
+export {
+  jestRules as default,
 }

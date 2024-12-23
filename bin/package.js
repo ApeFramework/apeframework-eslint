@@ -4,10 +4,7 @@
  *   Package source:
  *     node bin/package 0.0.0-dev.0
  */
-
-'use strict'
-
-const fs = require('fs-extra')
+import fs from 'fs-extra'
 
 const [version] = process.argv.slice(2)
 
@@ -31,10 +28,9 @@ const pkg = {
   publishConfig: {
     access: 'public',
   },
-  main: 'index.js',
+  type: devPkg.type,
   dependencies: devPkg.dependencies,
   peerDependencies: devPkg.peerDependencies,
-  peerDependenciesMeta: devPkg.peerDependenciesMeta,
 }
 
 fs.ensureDirSync('dist')

@@ -1,11 +1,9 @@
-'use strict'
-
-const cheerio = require('cheerio')
+import { fromURL } from 'cheerio'
 
 const getJestRules = async () => {
   const rules = []
 
-  const $ = await cheerio.fromURL(
+  const $ = await fromURL(
     'https://www.npmjs.com/package/eslint-plugin-jest',
   )
 
@@ -17,6 +15,6 @@ const getJestRules = async () => {
   return rules.sort()
 }
 
-module.exports = {
+export {
   getJestRules,
 }

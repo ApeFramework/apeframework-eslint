@@ -1,11 +1,9 @@
-'use strict'
-
-const cheerio = require('cheerio')
+import { fromURL } from 'cheerio'
 
 const getBaseRules = async () => {
   const rules = []
 
-  const $ = await cheerio.fromURL(
+  const $ = await fromURL(
     'https://eslint.org/docs/latest/rules',
   )
 
@@ -23,6 +21,6 @@ const getBaseRules = async () => {
   return rules.sort()
 }
 
-module.exports = {
+export {
   getBaseRules,
 }

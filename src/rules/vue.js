@@ -1,6 +1,4 @@
-'use strict'
-
-module.exports = {
+const vueRules = {
   'vue/attribute-hyphenation': [
     'error',
   ],
@@ -427,6 +425,9 @@ module.exports = {
   'vue/prefer-true-attribute-shorthand': [
     'error',
   ],
+  'vue/prefer-use-template-ref': [
+    'error',
+  ],
   'vue/prop-name-casing': [
     'error',
   ],
@@ -490,6 +491,9 @@ module.exports = {
   'vue/require-valid-default-prop': [
     'error',
   ],
+  'vue/restricted-component-names': [
+    'error',
+  ],
   'vue/return-in-computed-property': [
     'error',
   ],
@@ -500,6 +504,9 @@ module.exports = {
     'error',
   ],
   'vue/singleline-html-element-content-newline': [
+    'error',
+  ],
+  'vue/slot-name-casing': [
     'error',
   ],
   'vue/sort-keys': [
@@ -607,4 +614,8 @@ module.exports = {
   'vue/valid-v-text': [
     'error',
   ],
+}
+
+export {
+  vueRules as default,
 }

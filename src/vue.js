@@ -1,10 +1,11 @@
-'use strict'
+import vuePlugin from 'eslint-plugin-vue'
+import typescriptPlugin from 'typescript-eslint'
+import vueParser from 'vue-eslint-parser'
+import typescriptRules from './rules/typescript.js'
+import typescriptDisabledRules from './rules/typescriptDisabled.js'
+import vueRules from './rules/vue.js'
 
-const vuePlugin = require('eslint-plugin-vue')
-const typescriptPlugin = require('typescript-eslint')
-const vueParser = require('vue-eslint-parser')
-
-module.exports = {
+const vueConfig = {
   files: ['*.vue', '**/*.vue'],
   plugins: {
     'vue': vuePlugin,
@@ -28,8 +29,12 @@ module.exports = {
     },
   },
   rules: {
-    ...require('./rules/typescriptDisabled'),
-    ...require('./rules/typescript'),
-    ...require('./rules/vue'),
+    ...typescriptDisabledRules,
+    ...typescriptRules,
+    ...vueRules,
   },
+}
+
+export {
+  vueConfig as default,
 }

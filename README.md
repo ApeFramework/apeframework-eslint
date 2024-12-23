@@ -1,6 +1,6 @@
 # Ape Framework ESLint configuration
 
-[ESLint](https://eslint.org) configuration for [Ape Framework](https://github.com/ApeFramework/apeframework).
+[Ape Framework](https://github.com/ApeFramework/apeframework) [ESLint](https://eslint.org) configuration.
 
 NPM package: [@apeframework/eslint](https://www.npmjs.com/package/@apeframework/eslint).
 
@@ -17,17 +17,19 @@ yarn add @apeframework/eslint --dev
 Create `eslint.config.js` file:
 
 ```js
-'use strict'
+import base from '@apeframework/eslint/base.js'
+import jest from '@apeframework/eslint/jest.js'
+import typescript from '@apeframework/eslint/typescript.js'
+import vue from '@apeframework/eslint/vue.js'
 
-const base = require('@apeframework/eslint/base')
-const jest = require('@apeframework/eslint/jest')
-const typescript = require('@apeframework/eslint/typescript')
-const vue = require('@apeframework/eslint/vue')
-
-module.exports = [
+const config = [
   base,
   jest,
   typescript,
   vue,
 ]
+
+export {
+  config as default,
+}
 ```

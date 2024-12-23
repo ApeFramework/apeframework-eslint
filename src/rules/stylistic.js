@@ -1,6 +1,4 @@
-'use strict'
-
-module.exports = {
+const stylisticRules = {
   '@stylistic/array-bracket-newline': [
     'error',
     'consistent',
@@ -59,6 +57,9 @@ module.exports = {
     {
       enforceForClassMembers: true,
     },
+  ],
+  '@stylistic/curly-newline': [
+    'error',
   ],
   '@stylistic/dot-location': [
     'error',
@@ -359,4 +360,8 @@ module.exports = {
       after: true,
     },
   ],
+}
+
+export {
+  stylisticRules as default,
 }

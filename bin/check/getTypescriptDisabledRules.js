@@ -1,12 +1,10 @@
-'use strict'
-
-const cheerio = require('cheerio')
+import { fromURL } from 'cheerio'
 
 const getTypescriptDisabledRules = async () => {
   const rules = []
   const urls = []
 
-  const $ = await cheerio.fromURL(
+  const $ = await fromURL(
     'https://typescript-eslint.io/rules',
   )
 
@@ -21,7 +19,7 @@ const getTypescriptDisabledRules = async () => {
     })
 
   for (const url of urls) {
-    const $rule = await cheerio.fromURL(url)
+    const $rule = await fromURL(url)
 
     $rule('div.theme-doc-markdown code')
       .filter((index, element) => {
@@ -39,6 +37,6 @@ const getTypescriptDisabledRules = async () => {
   return rules.sort()
 }
 
-module.exports = {
+export {
   getTypescriptDisabledRules,
 }

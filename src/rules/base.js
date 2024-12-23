@@ -1,6 +1,4 @@
-'use strict'
-
-module.exports = {
+const baseRules = {
   'accessor-pairs': [
     'error',
   ],
@@ -429,6 +427,9 @@ module.exports = {
   'no-use-before-define': [
     'error',
   ],
+  'no-useless-assignment': [
+    'error',
+  ],
   'no-useless-backreference': [
     'error',
   ],
@@ -561,4 +562,8 @@ module.exports = {
   'yoda': [
     'error',
   ],
+}
+
+export {
+  baseRules as default,
 }

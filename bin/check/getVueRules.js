@@ -1,11 +1,9 @@
-'use strict'
-
-const cheerio = require('cheerio')
+import { fromURL } from 'cheerio'
 
 const getVueRules = async () => {
   const rules = []
 
-  const $ = await cheerio.fromURL(
+  const $ = await fromURL(
     'https://eslint.vuejs.org/rules',
   )
 
@@ -21,6 +19,6 @@ const getVueRules = async () => {
   return rules.sort()
 }
 
-module.exports = {
+export {
   getVueRules,
 }

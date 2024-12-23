@@ -1,16 +1,17 @@
-'use strict'
+import stylisticPlugin from '@stylistic/eslint-plugin'
+import importPlugin from 'eslint-plugin-import'
+import globals from 'globals'
+import baseRules from './rules/base.js'
+import importRules from './rules/import.js'
+import stylisticRules from './rules/stylistic.js'
 
-const stylisticPlugin = require('@stylistic/eslint-plugin')
-const importPlugin = require('eslint-plugin-import')
-const globals = require('globals')
-
-module.exports = {
+const baseConfig = {
   plugins: {
     '@stylistic': stylisticPlugin,
     'import': importPlugin,
   },
   languageOptions: {
-    sourceType: 'commonjs',
+    sourceType: 'module',
     ecmaVersion: 'latest',
     globals: globals.node,
   },
@@ -20,8 +21,12 @@ module.exports = {
     },
   },
   rules: {
-    ...require('./rules/base'),
-    ...require('./rules/stylistic'),
-    ...require('./rules/import'),
+    ...baseRules,
+    ...stylisticRules,
+    ...importRules,
   },
+}
+
+export {
+  baseConfig as default,
 }

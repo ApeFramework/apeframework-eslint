@@ -1,11 +1,9 @@
-'use strict'
-
-const cheerio = require('cheerio')
+import { fromURL } from 'cheerio'
 
 const getTypescriptRules = async () => {
   const rules = []
 
-  const $ = await cheerio.fromURL(
+  const $ = await fromURL(
     'https://typescript-eslint.io/rules',
   )
 
@@ -21,6 +19,6 @@ const getTypescriptRules = async () => {
   return rules.sort()
 }
 
-module.exports = {
+export {
   getTypescriptRules,
 }

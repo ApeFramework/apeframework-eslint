@@ -1,11 +1,9 @@
-'use strict'
-
-const cheerio = require('cheerio')
+import { fromURL } from 'cheerio'
 
 const getStylisticRules = async () => {
   const rules = []
 
-  const $ = await cheerio.fromURL(
+  const $ = await fromURL(
     'https://eslint.style/packages/default',
   )
 
@@ -17,6 +15,6 @@ const getStylisticRules = async () => {
   return rules.sort()
 }
 
-module.exports = {
+export {
   getStylisticRules,
 }

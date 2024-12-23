@@ -1,8 +1,8 @@
-'use strict'
+import typescriptPlugin from 'typescript-eslint'
+import typescriptRules from './rules/typescript.js'
+import typescriptDisabledRules from './rules/typescriptDisabled.js'
 
-const typescriptPlugin = require('typescript-eslint')
-
-module.exports = {
+const typescriptConfig = {
   files: ['*.ts', '**/*.ts'],
   plugins: {
     '@typescript-eslint': typescriptPlugin.plugin,
@@ -22,7 +22,11 @@ module.exports = {
     },
   },
   rules: {
-    ...require('./rules/typescriptDisabled'),
-    ...require('./rules/typescript'),
+    ...typescriptDisabledRules,
+    ...typescriptRules,
   },
+}
+
+export {
+  typescriptConfig as default,
 }

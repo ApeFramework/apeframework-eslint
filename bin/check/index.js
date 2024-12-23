@@ -1,45 +1,35 @@
 /*
  * Usage: node bin/check
  */
-
-'use strict'
-
-const { getBaseRules } = require('./getBaseRules')
-const { getImportRules } = require('./getImportRules')
-const { getJestRules } = require('./getJestRules')
-const { getStylisticRules } = require('./getStylisticRules')
-const { getTypescriptDisabledRules } = require('./getTypescriptDisabledRules')
-const { getTypescriptRules } = require('./getTypescriptRules')
-const { getVueRules } = require('./getVueRules')
+import { getBaseRules } from './getBaseRules.js'
+import { getImportRules } from './getImportRules.js'
+import { getJestRules } from './getJestRules.js'
+import { getStylisticRules } from './getStylisticRules.js'
+import { getTypescriptDisabledRules } from './getTypescriptDisabledRules.js'
+import { getTypescriptRules } from './getTypescriptRules.js'
+import { getVueRules } from './getVueRules.js'
 
 const check = async () => {
-  const allRules = {
-    base: await getBaseRules(),
-    import: await getImportRules(),
-    jest: await getJestRules(),
-    stylistic: await getStylisticRules(),
-    typescriptDisabled: await getTypescriptDisabledRules(),
-    typescript: await getTypescriptRules(),
-    vue: await getVueRules(),
+  const ruleGetters = {
+    base: getBaseRules,
+    import: getImportRules,
+    jest: getJestRules,
+    stylistic: getStylisticRules,
+    typescriptDisabled: getTypescriptDisabledRules,
+    typescript: getTypescriptRules,
+    vue: getVueRules,
   }
 
-  Object.entries(allRules).forEach(([ruleset, rules]) => {
-    process.stdout.write(`Check ${ruleset} rules:`)
+  for (const [ruleset, getRules] of Object.entries(ruleGetters)) {
+    process.stdout.write(`Checking ${ruleset} rules:`)
 
     let ok = true
 
-    const projectRules = Object.keys(require(`../../src/rules/${ruleset}.js`))
+    const rules = await getRules()
 
-    projectRules.forEach((rule, index) => {
-      if (index > 0 && rule < projectRules[index - 1]) {
-        process.stdout.write(`\n- unordered: ${rule}`)
-        ok = false
-      }
-      if (!rules.includes(rule)) {
-        process.stdout.write(`\n- extraneous: ${rule}`)
-        ok = false
-      }
-    })
+    const projectRules = Object.keys(
+      (await import(`../../src/rules/${ruleset}.js`)).default,
+    )
 
     rules.forEach((rule) => {
       if (!projectRules.includes(rule)) {
@@ -48,8 +38,19 @@ const check = async () => {
       }
     })
 
+    projectRules.forEach((projectRule, index) => {
+      if (!rules.includes(projectRule)) {
+        process.stdout.write(`\n- extraneous: ${projectRule}`)
+        ok = false
+      }
+      if (index > 0 && projectRule < projectRules[index - 1]) {
+        process.stdout.write(`\n- unordered: ${projectRules[index - 1]}`)
+        ok = false
+      }
+    })
+
     process.stdout.write(ok ? ' OK\n' : '\n')
-  })
+  }
 }
 
 check()

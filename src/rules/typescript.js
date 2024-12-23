@@ -1,6 +1,4 @@
-'use strict'
-
-module.exports = {
+const typescriptRules = {
   '@typescript-eslint/adjacent-overload-signatures': [
     'error',
   ],
@@ -216,6 +214,9 @@ module.exports = {
   ],
   '@typescript-eslint/no-unsafe-member-access': 'off',
   '@typescript-eslint/no-unsafe-return': 'off',
+  '@typescript-eslint/no-unsafe-type-assertion': [
+    'error',
+  ],
   '@typescript-eslint/no-unsafe-unary-minus': [
     'error',
   ],
@@ -298,6 +299,9 @@ module.exports = {
   '@typescript-eslint/promise-function-async': [
     'error',
   ],
+  '@typescript-eslint/related-getter-setter-pairs': [
+    'error',
+  ],
   '@typescript-eslint/require-array-sort-compare': [
     'error',
   ],
@@ -330,4 +334,8 @@ module.exports = {
   '@typescript-eslint/use-unknown-in-catch-callback-variable': [
     'error',
   ],
+}
+
+export {
+  typescriptRules as default,
 }

@@ -1,6 +1,4 @@
-'use strict'
-
-module.exports = {
+const typescriptDisabledRules = {
   'class-methods-use-this': 'off',
   'consistent-return': 'off',
   'default-param-last': 'off',
@@ -26,4 +24,8 @@ module.exports = {
   'prefer-destructuring': 'off',
   'prefer-promise-reject-errors': 'off',
   'require-await': 'off',
+}
+
+export {
+  typescriptDisabledRules as default,
 }

@@ -1,6 +1,4 @@
-'use strict'
-
-module.exports = {
+const importRules = {
   'import/consistent-type-specifier-style': [
     'error',
     'prefer-top-level',
@@ -17,6 +15,11 @@ module.exports = {
   ],
   'import/extensions': [
     'error',
+    'never',
+    {
+      js: 'always',
+      vue: 'always',
+    },
   ],
   'import/first': [
     'error',
@@ -121,4 +124,8 @@ module.exports = {
   'import/unambiguous': [
     'error',
   ],
+}
+
+export {
+  importRules as default,
 }
