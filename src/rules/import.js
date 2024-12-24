@@ -13,14 +13,7 @@ const importRules = {
   'import/exports-last': [
     'error',
   ],
-  'import/extensions': [
-    'error',
-    'never',
-    {
-      js: 'always',
-      vue: 'always',
-    },
-  ],
+  'import/extensions': 'off',
   'import/first': [
     'error',
   ],
