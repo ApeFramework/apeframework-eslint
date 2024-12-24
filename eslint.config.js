@@ -9,6 +9,10 @@ const config = [
   },
   {
     rules: {
+      'import/extensions': [
+        'error',
+        'always',
+      ],
       'import/no-unresolved': [
         'error',
         {
