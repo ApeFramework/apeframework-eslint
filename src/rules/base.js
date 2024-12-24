@@ -88,6 +88,11 @@ const baseRules = {
   'max-statements': 'off',
   'new-cap': [
     'error',
+    {
+      newIsCap: true,
+      capIsNew: false,
+      properties: false,
+    },
   ],
   'no-alert': [
     'error',
