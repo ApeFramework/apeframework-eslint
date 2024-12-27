@@ -17,10 +17,10 @@ yarn add @apeframework/eslint --dev
 Create `eslint.config.js` file:
 
 ```js
-import base from '@apeframework/eslint/base.js'
-import jest from '@apeframework/eslint/jest.js'
-import typescript from '@apeframework/eslint/typescript.js'
-import vue from '@apeframework/eslint/vue.js'
+import base from '@apeframework/eslint/base'
+import jest from '@apeframework/eslint/jest'
+import typescript from '@apeframework/eslint/typescript'
+import vue from '@apeframework/eslint/vue'
 
 const config = [
   base,
