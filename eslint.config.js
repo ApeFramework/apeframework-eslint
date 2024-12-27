@@ -7,20 +7,6 @@ const config = [
       'package',
     ],
   },
-  {
-    rules: {
-      'import/extensions': [
-        'error',
-        'always',
-      ],
-      'import/no-unresolved': [
-        'error',
-        {
-          ignore: ['typescript-eslint'],
-        },
-      ],
-    },
-  },
 ]
 
 export {

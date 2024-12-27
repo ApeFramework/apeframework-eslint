@@ -37,7 +37,7 @@ const importRules = {
     'error',
   ],
   'import/no-anonymous-default-export': 'off',
-  'import/no-commonjs': 'off',
+  'import/no-commonjs': 'on',
   'import/no-cycle': [
     'error',
   ],
@@ -83,9 +83,7 @@ const importRules = {
     'error',
   ],
   'import/no-unassigned-import': 'off',
-  'import/no-unresolved': [
-    'error',
-  ],
+  'import/no-unresolved': 'off',
   'import/no-unused-modules': 'off',
   'import/no-useless-path-segments': [
     'error',
