@@ -13,7 +13,9 @@ const importRules = {
   'import/exports-last': [
     'error',
   ],
-  'import/extensions': 'off',
+  'import/extensions': [
+    'error',
+  ],
   'import/first': [
     'error',
   ],
@@ -36,7 +38,9 @@ const importRules = {
   'import/no-amd': [
     'error',
   ],
-  'import/no-anonymous-default-export': 'off',
+  'import/no-anonymous-default-export': [
+    'error',
+  ],
   'import/no-commonjs': [
     'error',
   ],
@@ -50,7 +54,9 @@ const importRules = {
   'import/no-duplicates': [
     'error',
   ],
-  'import/no-dynamic-require': 'off',
+  'import/no-dynamic-require': [
+    'error',
+  ],
   'import/no-empty-named-blocks': [
     'error',
   ],
@@ -85,7 +91,9 @@ const importRules = {
     'error',
   ],
   'import/no-unassigned-import': 'off',
-  'import/no-unresolved': 'off',
+  'import/no-unresolved': [
+    'error',
+  ],
   'import/no-unused-modules': 'off',
   'import/no-useless-path-segments': [
     'error',
