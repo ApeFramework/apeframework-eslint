@@ -15,6 +15,7 @@ const importRules = {
   ],
   'import/extensions': [
     'error',
+    'always',
   ],
   'import/first': [
     'error',

@@ -7,6 +7,18 @@ const config = [
       'package',
     ],
   },
+  {
+    rules: {
+      'import/no-unresolved': [
+        'error',
+        {
+          ignore: [
+            'typescript-eslint',
+          ],
+        },
+      ],
+    },
+  },
 ]
 
 export {
