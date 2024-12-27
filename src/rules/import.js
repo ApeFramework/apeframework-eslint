@@ -37,7 +37,9 @@ const importRules = {
     'error',
   ],
   'import/no-anonymous-default-export': 'off',
-  'import/no-commonjs': 'on',
+  'import/no-commonjs': [
+    'error',
+  ],
   'import/no-cycle': [
     'error',
   ],
