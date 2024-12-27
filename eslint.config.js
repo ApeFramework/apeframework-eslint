@@ -4,7 +4,7 @@ const config = [
   base,
   {
     ignores: [
-      'dist',
+      'package',
     ],
   },
   {

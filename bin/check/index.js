@@ -15,8 +15,8 @@ const check = async () => {
     import: getImportRules,
     jest: getJestRules,
     stylistic: getStylisticRules,
-    typescriptDisabled: getTypescriptDisabledRules,
     typescript: getTypescriptRules,
+    typescriptDisabled: getTypescriptDisabledRules,
     vue: getVueRules,
   }
 

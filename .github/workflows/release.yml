@@ -41,6 +41,6 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           node bin/package ${{ steps.tag.outputs.version }}
-          cd dist
+          cd package
           npm publish \
             --tag=${{ steps.tag.outputs.dev == 'true' && 'dev' || 'latest' }}
