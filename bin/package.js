@@ -35,7 +35,7 @@ const pkg = {
   peerDependencies: devPkg.peerDependencies,
 }
 
-const jsFileRegex = /^src\/(?<path>.*)\.js$/u
+const srcFileRegex = /^src\/(?<path>.*)\.js$/u
 
 const generateExports = (dir) => {
   const files = fs.readdirSync(dir, { withFileTypes: true })
@@ -44,7 +44,7 @@ const generateExports = (dir) => {
     if (file.isDirectory()) {
       generateExports(fullPath)
     } else {
-      const filePath = fullPath.replace(jsFileRegex, '$<path>')
+      const filePath = fullPath.match(srcFileRegex).groups.path
       pkg.exports[`./${filePath}`] = {
         import: `./dist/${filePath}.js`,
       }
