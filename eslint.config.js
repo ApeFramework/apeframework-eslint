@@ -9,14 +9,6 @@ const config = [
       'package',
     ],
   },
-  {
-    rules: {
-      'import/extensions': 'off',
-      'import/no-unresolved': 'off',
-      'import/unambiguous': 'off',
-      '@typescript-eslint/no-floating-promises': 'off',
-    },
-  },
 ]
 
 export {

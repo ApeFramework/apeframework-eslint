@@ -31,6 +31,7 @@ const pkg: any = {
   },
   type: devPkg.type,
   exports: {},
+  engines: devPkg.engines,
   dependencies: devPkg.dependencies,
   peerDependencies: devPkg.peerDependencies,
 }

@@ -10,6 +10,9 @@
     "package": "tsx bin/package"
   },
   "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
   "dependencies": {
     "@stylistic/eslint-plugin": "^2.12",
     "eslint-plugin-import": "^2.31",
@@ -23,7 +26,7 @@
     "eslint": "^9.17"
   },
   "devDependencies": {
-    "@apeframework/eslint": "0.0.0-dev.26",
+    "@apeframework/eslint": "0.0.0-dev.27",
     "@types/fs-extra": "^11.0",
     "@types/node": "^22.10",
     "cheerio": "^1.0",
