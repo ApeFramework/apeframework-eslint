@@ -1,32 +1,35 @@
+import vuePlugin from 'eslint-plugin-vue'
 import typescriptPlugin from 'typescript-eslint'
+import vueParser from 'vue-eslint-parser'
 import typescriptRules from './rules/typescript.js'
 import typescriptDisabledRules from './rules/typescriptDisabled.js'
+import vueRules from './rules/vue.js'
 
-const typescriptConfig = {
-  files: ['*.ts', '**/*.ts'],
+const vueConfig = {
+  files: ['*.vue', '**/*.vue'],
   plugins: {
-    '@typescript-eslint': typescriptPlugin.plugin,
+    'typescript': typescriptPlugin.plugin,
+    'vue': vuePlugin,
   },
+  processor: 'vue/vue',
   languageOptions: {
-    parser: typescriptPlugin.parser,
+    parser: vueParser,
     parserOptions: {
+      parser: typescriptPlugin.parser,
       projectService: true,
       ecmaFeatures: {
         impliedStrict: true,
       },
-    },
-  },
-  settings: {
-    'import/resolver': {
-      typescript: true,
+      extraFileExtensions: ['.vue'],
     },
   },
   rules: {
     ...typescriptDisabledRules,
     ...typescriptRules,
+    ...vueRules,
   },
 }
 
 export {
-  typescriptConfig as default,
+  vueConfig as default,
 }

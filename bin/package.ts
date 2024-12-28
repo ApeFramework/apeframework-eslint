@@ -1,8 +1,8 @@
 /*
- * Usage: node bin/package <version>
+ * Usage: yarn package <version>
  *
  *   Package source:
- *     node bin/package 0.0.0-dev.0
+ *     yarn package 0.0.0-dev.0
  */
 import path from 'path'
 import fs from 'fs-extra'
@@ -15,7 +15,7 @@ if (!version) {
 
 const devPkg = fs.readJsonSync('package.json')
 
-const pkg = {
+const pkg: any = {
   name: '@apeframework/eslint',
   version,
   publishConfig: {
@@ -35,18 +35,21 @@ const pkg = {
   peerDependencies: devPkg.peerDependencies,
 }
 
-const srcFileRegex = /^src\/(?<path>.*)\.js$/u
+const srcFileRegex = /^src\/(?<path>.*)\.ts$/u
 
-const generateExports = (dir) => {
+const generateExports = (dir: string): void => {
   const files = fs.readdirSync(dir, { withFileTypes: true })
   files.forEach((file) => {
     const fullPath = path.join(dir, file.name)
     if (file.isDirectory()) {
       generateExports(fullPath)
     } else {
-      const filePath = fullPath.match(srcFileRegex).groups.path
+      const filePath = srcFileRegex.exec(fullPath)?.groups?.path
       pkg.exports[`./${filePath}`] = {
-        import: `./dist/${filePath}.js`,
+        import: {
+          types: `./dist/${filePath}.d.ts`,
+          default: `./dist/${filePath}.js`,
+        },
       }
     }
   })
@@ -58,4 +61,3 @@ fs.ensureDirSync('package')
 fs.writeJsonSync('package/package.json', pkg, { spaces: 2 })
 fs.copySync('LICENSE', 'package/LICENSE')
 fs.copySync('README.md', 'package/README.md')
-fs.copySync('src', 'package/dist')

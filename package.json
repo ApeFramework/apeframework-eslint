@@ -2,14 +2,16 @@
   "name": "apeframework-eslint",
   "private": true,
   "scripts": {
+    "update": "ncu",
+    "analyze": "tsx bin/analyze",
+    "compile": "tsc",
     "lint": "eslint",
-    "update": "ncu"
+    "build": "tsc -p tsconfig.build.json",
+    "package": "tsx bin/package"
   },
   "type": "module",
   "dependencies": {
     "@stylistic/eslint-plugin": "^2.12",
-    "eslint-import-resolver-jest": "^3.0",
-    "eslint-import-resolver-typescript": "^3.7",
     "eslint-plugin-import": "^2.31",
     "eslint-plugin-jest": "^28.10",
     "eslint-plugin-vue": "^9.32",
@@ -21,9 +23,14 @@
     "eslint": "^9.17"
   },
   "devDependencies": {
+    "@apeframework/eslint": "0.0.0-dev.26",
+    "@types/fs-extra": "^11.0",
+    "@types/node": "^22.10",
     "cheerio": "^1.0",
     "eslint": "^9.17",
     "fs-extra": "^11.2",
-    "npm-check-updates": "^17.1"
+    "npm-check-updates": "^17.1",
+    "tsx": "^4.19",
+    "typescript": "^5.7"
   }
 }

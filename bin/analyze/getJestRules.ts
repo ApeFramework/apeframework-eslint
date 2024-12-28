@@ -1,7 +1,7 @@
 import { fromURL } from 'cheerio'
 
-const getJestRules = async () => {
-  const rules = []
+const getJestRules = async (): Promise<string[]> => {
+  const rules: string[] = []
 
   const $ = await fromURL(
     'https://www.npmjs.com/package/eslint-plugin-jest',

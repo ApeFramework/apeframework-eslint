@@ -33,14 +33,20 @@ jobs:
       - name: Install dependencies
         run: yarn
 
-      - name: Run linter
+      - name: Compile project
+        run: yarn compile
+
+      - name: Lint project
         run: yarn lint
+
+      - name: Build package
+        run: yarn build
 
       - name: Publish package to NPM
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          node bin/package ${{ steps.tag.outputs.version }}
+          yarn package ${{ steps.tag.outputs.version }}
           cd package
           npm publish \
             --tag=${{ steps.tag.outputs.dev == 'true' && 'dev' || 'latest' }}

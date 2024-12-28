@@ -1,7 +1,7 @@
 import { fromURL } from 'cheerio'
 
-const getTypescriptRules = async () => {
-  const rules = []
+const getTypescriptRules = async (): Promise<string[]> => {
+  const rules: string[] = []
 
   const $ = await fromURL(
     'https://typescript-eslint.io/rules',
@@ -13,7 +13,7 @@ const getTypescriptRules = async () => {
     })
     .find('a')
     .each((index, element) => {
-      rules.push($(element).text())
+      rules.push($(element).text().replace('@typescript-eslint', 'typescript'))
     })
 
   return rules.sort()

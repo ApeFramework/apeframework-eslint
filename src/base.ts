@@ -7,23 +7,18 @@ import stylisticRules from './rules/stylistic.js'
 
 const baseConfig = {
   plugins: {
-    '@stylistic': stylisticPlugin,
     'import': importPlugin,
+    'stylistic': stylisticPlugin,
   },
   languageOptions: {
     sourceType: 'module',
     ecmaVersion: 'latest',
     globals: globals.node,
   },
-  settings: {
-    'import/resolver': {
-      node: true,
-    },
-  },
   rules: {
     ...baseRules,
-    ...stylisticRules,
     ...importRules,
+    ...stylisticRules,
   },
 }
 

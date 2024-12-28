@@ -1,5 +1,5 @@
 /*
- * Usage: node bin/check
+ * Usage: yarn analyze
  */
 import { getBaseRules } from './getBaseRules.js'
 import { getImportRules } from './getImportRules.js'
@@ -9,7 +9,7 @@ import { getTypescriptDisabledRules } from './getTypescriptDisabledRules.js'
 import { getTypescriptRules } from './getTypescriptRules.js'
 import { getVueRules } from './getVueRules.js'
 
-const check = async () => {
+(async (): Promise<void> => {
   const ruleGetters = {
     base: getBaseRules,
     import: getImportRules,
@@ -21,9 +21,9 @@ const check = async () => {
   }
 
   for (const [ruleset, getRules] of Object.entries(ruleGetters)) {
-    process.stdout.write(`Checking ${ruleset} rules:`)
+    process.stdout.write(`Analyzing ${ruleset} rules:`)
 
-    let ok = true
+    const errors: string[] = []
 
     const rules = await getRules()
 
@@ -33,24 +33,19 @@ const check = async () => {
 
     rules.forEach((rule) => {
       if (!projectRules.includes(rule)) {
-        process.stdout.write(`\n- missing: ${rule}`)
-        ok = false
+        errors.push(`\n- missing: ${rule}`)
       }
     })
 
     projectRules.forEach((projectRule, index) => {
       if (!rules.includes(projectRule)) {
-        process.stdout.write(`\n- extraneous: ${projectRule}`)
-        ok = false
+        errors.push(`\n- extraneous: ${projectRule}`)
       }
       if (index > 0 && projectRule < projectRules[index - 1]) {
-        process.stdout.write(`\n- unordered: ${projectRules[index - 1]}`)
-        ok = false
+        errors.push(`\n- unordered: ${projectRules[index - 1]}`)
       }
     })
 
-    process.stdout.write(ok ? ' OK\n' : '\n')
+    process.stdout.write(`${errors.length ? errors.join('') : ' OK'}\n`)
   }
-}
-
-check()
+})()

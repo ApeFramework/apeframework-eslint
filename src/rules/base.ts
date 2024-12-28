@@ -1,4 +1,6 @@
-const baseRules = {
+import type { Rules } from '../Rules.js'
+
+const baseRules: Rules<''> = {
   'accessor-pairs': [
     'error',
   ],

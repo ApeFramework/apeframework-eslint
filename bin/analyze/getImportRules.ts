@@ -1,7 +1,7 @@
 import { fromURL } from 'cheerio'
 
-const getImportRules = async () => {
-  const rules = []
+const getImportRules = async (): Promise<string[]> => {
+  const rules: string[] = []
 
   const $ = await fromURL(
     'https://www.npmjs.com/package/eslint-plugin-import',

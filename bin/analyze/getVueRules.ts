@@ -1,7 +1,7 @@
 import { fromURL } from 'cheerio'
 
-const getVueRules = async () => {
-  const rules = []
+const getVueRules = async (): Promise<string[]> => {
+  const rules: string[] = []
 
   const $ = await fromURL(
     'https://eslint.vuejs.org/rules',

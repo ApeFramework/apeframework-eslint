@@ -1,8 +1,8 @@
 import { fromURL } from 'cheerio'
 
-const getTypescriptDisabledRules = async () => {
-  const rules = []
-  const urls = []
+const getTypescriptDisabledRules = async (): Promise<string[]> => {
+  const rules: string[] = []
+  const urls: string[] = []
 
   const $ = await fromURL(
     'https://typescript-eslint.io/rules',

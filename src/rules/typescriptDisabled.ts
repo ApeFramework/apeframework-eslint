@@ -1,4 +1,6 @@
-const typescriptDisabledRules = {
+import type { Rules } from '../Rules.js'
+
+const typescriptDisabledRules: Rules<''> = {
   'class-methods-use-this': 'off',
   'consistent-return': 'off',
   'default-param-last': 'off',

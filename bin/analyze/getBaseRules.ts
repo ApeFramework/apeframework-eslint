@@ -1,7 +1,7 @@
 import { fromURL } from 'cheerio'
 
-const getBaseRules = async () => {
-  const rules = []
+const getBaseRules = async (): Promise<string[]> => {
+  const rules: string[] = []
 
   const $ = await fromURL(
     'https://eslint.org/docs/latest/rules',

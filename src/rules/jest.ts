@@ -1,4 +1,6 @@
-const jestRules = {
+import type { Rules } from '../Rules.js'
+
+const jestRules: Rules<'jest/'> = {
   'jest/consistent-test-it': [
     'error',
     {

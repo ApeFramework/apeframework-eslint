@@ -1,4 +1,6 @@
-const importRules = {
+import type { Rules } from '../Rules.js'
+
+const importRules: Rules<'import/'> = {
   'import/consistent-type-specifier-style': [
     'error',
     'prefer-top-level',
@@ -13,10 +15,7 @@ const importRules = {
   'import/exports-last': [
     'error',
   ],
-  'import/extensions': [
-    'error',
-    'always',
-  ],
+  'import/extensions': 'off',
   'import/first': [
     'error',
   ],
@@ -92,9 +91,7 @@ const importRules = {
     'error',
   ],
   'import/no-unassigned-import': 'off',
-  'import/no-unresolved': [
-    'error',
-  ],
+  'import/no-unresolved': 'off',
   'import/no-unused-modules': 'off',
   'import/no-useless-path-segments': [
     'error',
@@ -123,9 +120,7 @@ const importRules = {
     },
   ],
   'import/prefer-default-export': 'off',
-  'import/unambiguous': [
-    'error',
-  ],
+  'import/unambiguous': 'off',
 }
 
 export {

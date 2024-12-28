@@ -1,7 +1,7 @@
 import { fromURL } from 'cheerio'
 
-const getStylisticRules = async () => {
-  const rules = []
+const getStylisticRules = async (): Promise<string[]> => {
+  const rules: string[] = []
 
   const $ = await fromURL(
     'https://eslint.style/packages/default',
@@ -9,7 +9,7 @@ const getStylisticRules = async () => {
 
   $('div.vp-doc tr a')
     .each((index, element) => {
-      rules.push(`@stylistic/${$(element).text()}`)
+      rules.push(`stylistic/${$(element).text()}`)
     })
 
   return rules.sort()
