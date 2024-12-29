@@ -154,7 +154,9 @@ const typescriptRules: Rules<'typescript/'> = {
   'typescript/no-non-null-assertion': [
     'error',
   ],
-  'typescript/no-redeclare': 'off',
+  'typescript/no-redeclare': [
+    'error',
+  ],
   'typescript/no-redundant-type-constituents': [
     'error',
   ],
@@ -255,7 +257,9 @@ const typescriptRules: Rules<'typescript/'> = {
   'typescript/prefer-enum-initializers': [
     'error',
   ],
-  'typescript/prefer-find': 'off',
+  'typescript/prefer-find': [
+    'error',
+  ],
   'typescript/prefer-for-of': [
     'error',
   ],
