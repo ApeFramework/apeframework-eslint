@@ -28,7 +28,7 @@ import { getVueRules } from './getVueRules.js'
     const rules = await getRules()
 
     const projectRules = Object.keys(
-      (await import(`../../src/rules/${ruleset}.js`)).default,
+      (await import(`rules/${ruleset}.js`)).default,
     )
 
     rules.forEach((rule) => {
