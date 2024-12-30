@@ -115,12 +115,11 @@ const importRules: Rules<'import/'> = {
       ],
       'alphabetize': {
         order: 'asc',
-        orderImportKind: 'asc',
         caseInsensitive: true,
       },
       'named': {
         enabled: true,
-        import: true,
+        import: false,
         export: true,
         types: 'types-last',
       },

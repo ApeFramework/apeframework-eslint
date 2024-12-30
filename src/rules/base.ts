@@ -541,6 +541,7 @@ const baseRules: Rules<''> = {
   'sort-imports': [
     'error',
     {
+      ignoreCase: true,
       ignoreDeclarationSort: true,
     },
   ],
